@@ -1,4 +1,4 @@
-import { FETCH_TEAMS_START } from '../actions/actions'
+import { FETCH_TEAMS_START, FETCH_TEAMS_SUCCESS, FETCH_TEAMS_FAILURE } from '../actions/actions'
 
 const initialState = {
     isLoading: false,
@@ -11,6 +11,19 @@ export const reducer = (state = initialState, action) => {
         case FETCH_TEAMS_START:
             return{
                 isLoading: true
+            }
+        case FETCH_TEAMS_SUCCESS:
+            return {
+                ...state,
+                isLoading: false,
+                teams: action.payload,
+                error: ''
+            };
+        case FETCH_TEAMS_FAILURE:
+            return {
+                ...state,
+                isLoading: false,
+                error: action.payload
             }
         default:
             return state;

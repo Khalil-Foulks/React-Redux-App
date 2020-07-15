@@ -12,9 +12,11 @@ export const fetchTeams = () => {
         axios.get(URL)
             .then(res => {
                 console.log(res)
+                dispatch({ type: FETCH_TEAMS_SUCCESS, payload: res.data.data})
             })
             .catch(err => {
-                debugger
+                // debugger
+                dispatch({ type: FETCH_TEAMS_FAILURE, payload: err.message})
             })
     }
 }

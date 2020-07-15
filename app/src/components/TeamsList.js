@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { fetchTeams } from '../store/actions/actions';
+import TeamCard from './TeamCard'
 
 const TeamsList = props => {
     useEffect(() => {
@@ -8,7 +9,18 @@ const TeamsList = props => {
     }, []);
     return (
         <div>
-            <h1>Teams List component is working</h1>
+            {props.isLoading && <h4>Loading Teams Data...</h4>}
+            {props.error && (
+                <p className='error'>Uh oh, something happened... {props.error}</p>
+            )}
+            {props.teams > 0 && (
+                <div>
+                    {props.teams.map(team =>(
+                        // <TeamCard key = {team.teams_id} teamInfo = {team} />
+                        <div key = {team.teams_id}> {team.full_name} </div>
+                    ))}
+                </div>
+            )}
         </div>
     )
 }
