@@ -13,4 +13,12 @@ const TeamsList = props => {
     )
 }
 
-export default TeamsList
+const mapStateToProps = state => {
+    return {
+        isLoading:state.isLoading,
+        teams: state.teams,
+        error: state.error
+    }
+}
+
+export default connect(mapStateToProps,{ fetchTeams })(TeamsList)
