@@ -11,7 +11,7 @@ export const fetchTeams = () => {
         dispatch({ type: FETCH_TEAMS_START });
         axios.get(URL)
             .then(res => {
-                console.log(res)
+                console.log(res.data)
                 dispatch({ type: FETCH_TEAMS_SUCCESS, payload: res.data.data})
             })
             .catch(err => {

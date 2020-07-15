@@ -9,6 +9,7 @@ const TeamsList = props => {
     }, []);
     return (
         <div>
+            <h2> Teams List Component Renders</h2>
             {props.isLoading && <h4>Loading Teams Data...</h4>}
             {props.error && (
                 <p className='error'>Uh oh, something happened... {props.error}</p>
@@ -16,8 +17,9 @@ const TeamsList = props => {
             {props.teams > 0 && (
                 <div>
                     {props.teams.map(team =>(
-                        // <TeamCard key = {team.teams_id} teamInfo = {team} />
-                        <div key = {team.teams_id}> {team.full_name} </div>
+                        console.log('TEAMS MAP',team),
+                        <TeamCard key = {team.id} teamInfo = {team} />
+                        // <div key = {team.id}> {team.full_name} </div>
                     ))}
                 </div>
             )}
