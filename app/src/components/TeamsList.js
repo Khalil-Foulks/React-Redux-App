@@ -21,7 +21,7 @@ const TeamsList = props => {
                     style={{display: "flex", flexWrap:"wrap", justifyContent: "space-evenly"}}
                 >
                     {props.teams.map(team =>(
-                        <TeamCard key = {team.id} teamInfo = {team} teamsIcon = {props.teamsIcon}/>
+                        <TeamCard key = {team.id} teamInfo = {team} />
                     ))}
                 </div>
             )}
@@ -34,7 +34,6 @@ const mapStateToProps = state => {
         isLoading:state.isLoading,
         teams: state.teams,
         error: state.error,
-        teamsIcon: state.teamsIcon
     }
 }
 

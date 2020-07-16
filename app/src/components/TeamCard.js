@@ -7,6 +7,8 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 
+import data from './data'
+
 const theme = createMuiTheme({
     overrides: {
         MuiCard: {
@@ -24,8 +26,9 @@ const theme = createMuiTheme({
 })
 
 const TeamCard = props => {
-
-    console.log(props)
+    // console.log(data)
+ 
+    // console.log(props)
      return (
         <div id = {props.teamInfo.full_name} style={{ padding: 30 }}>
             <Grid container spacing={40} justify="center">
@@ -38,12 +41,15 @@ const TeamCard = props => {
                         }}
                     >
                         <CardActionArea>
-                            {/* <CardMedia
+                            <CardMedia
                                 component="img"
-                                alt="Contemplative Reptile"
-                                image= ''
-                                title="Contemplative Reptile"
-                            /> */}
+                                alt= {props.teamInfo.full_name}
+                                image= {props.teamInfo.id === data.map(icon =>{
+                                    console.log("ICON: ", icon)
+                                    return icon.teamFullName ? icon.iconURL: null
+                                })}
+                                title= {props.teamInfo.full_name}
+                            />
                             <CardContent>
                                 <Typography gutterBottom variant="h5" component="h2">
                                     {props.teamInfo.full_name}
