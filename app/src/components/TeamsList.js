@@ -8,7 +8,7 @@ const TeamsList = props => {
         props.fetchTeams();
     }, []);
 
-    // {console.log('PROPS.TEAMS: ',props.teams)}
+    {console.log('PROPS.TEAMS: ',props)}
     return (
         <div>
             {props.isLoading && <h4>Loading Teams Data...</h4>}
@@ -16,10 +16,12 @@ const TeamsList = props => {
                 <p className='error'>Uh oh, something happened... {props.error}</p>
             )}
             {props.teams && (
-                <div>
+                <div 
+                    className="container" 
+                    style={{display: "flex", flexWrap:"wrap", justifyContent: "space-evenly"}}
+                >
                     {props.teams.map(team =>(
-                        <TeamCard key = {team.id} teamInfo = {team} />
-                        // <div key = {team.id}> {team.full_name} </div>
+                        <TeamCard key = {team.id} teamInfo = {team} teamsIcon = {props.teamsIcon}/>
                     ))}
                 </div>
             )}
@@ -31,7 +33,8 @@ const mapStateToProps = state => {
     return {
         isLoading:state.isLoading,
         teams: state.teams,
-        error: state.error
+        error: state.error,
+        teamsIcon: state.teamsIcon
     }
 }
 

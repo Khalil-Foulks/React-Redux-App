@@ -25,16 +25,23 @@ const theme = createMuiTheme({
 
 const TeamCard = props => {
 
+    console.log(props)
      return (
-        <div id = {props.teamInfo.full_name} style={{ marginTop: 20, padding: 30}}>
+        <div id = {props.teamInfo.full_name} style={{ padding: 30 }}>
             <Grid container spacing={40} justify="center">
                 <ThemeProvider>
-                    <Card >
+                    <Card 
+                        style={{
+                            width:360, 
+                            background: "linear-gradient(0deg, rgba(33,147,176,1) 0%, rgba(109,213,237,1) 100%)",
+                            boxShadow: "5px 0 18px #888888"
+                        }}
+                    >
                         <CardActionArea>
                             {/* <CardMedia
                                 component="img"
                                 alt="Contemplative Reptile"
-                                image= "https://lunawood.com/wp-content/uploads/2018/02/placeholder-image.png"
+                                image= ''
                                 title="Contemplative Reptile"
                             /> */}
                             <CardContent>
